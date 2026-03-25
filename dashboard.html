@@ -1,0 +1,16 @@
+@app.route('/dashboard')
+def dashboard():
+    conn = sqlite3.connect(DATABASE_FILE)
+    cursor = conn.cursor()
+
+    files = cursor.execute("SELECT * FROM files").fetchall()
+
+    total_files = cursor.execute("SELECT COUNT(*) FROM files").fetchone()[0]
+    total_downloads = cursor.execute("SELECT SUM(downloads) FROM files").fetchone()[0]
+
+    conn.close()
+
+    return render_template('dashboard.html',
+                           files=files,
+                           total_files=total_files,
+                           total_downloads=total_downloads)

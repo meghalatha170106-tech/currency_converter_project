@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversion History</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<h1>Conversion History</h1>
+<a href="/">Back to Converter</a>
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Amount</th>
+        <th>Result</th>
+    </tr>
+    {% for row in history %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4">No history yet</td></tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 5px;
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+@media (max-width: 600px) {
+    input, select, button {
+        width: 90%;
+    }
+}

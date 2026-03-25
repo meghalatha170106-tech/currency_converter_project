@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h1>Currency Converter</h1>
+
+<form method="POST">
+    <input type="number" name="amount" placeholder="Enter amount" required>
+
+    <select name="from_currency">
+        <option>USD</option>
+        <option>INR</option>
+        <option>EUR</option>
+    </select>
+
+    <select name="to_currency">
+        <option>INR</option>
+        <option>USD</option>
+        <option>EUR</option>
+    </select>
+
+    <button type="submit">Convert</button>
+</form>
+
+{% if error %}
+    <p class="error" style="color: red;">{{ error }}</p>
+{% endif %}
+
+{% if result is not none %}
+<h2>Converted Amount: {{ result }}</h2>
+{% endif %}
+
+<a href="/history">View History</a>
+
+<a href="/logout">Logout</a>
+
+<button onclick="toggleDarkMode()">🌙</button>
+
+<button onclick="addFavorite()">⭐</button>
+
+<canvas id="myChart"></canvas>
+
+<input type="text" id="search" onkeyup="searchTable()" placeholder="Search...">
+
+<button type="button" onclick="swapCurrency()">🔄</button>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/script.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</body>
+</html>
+
