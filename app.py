@@ -208,3 +208,13 @@ def send_email(token):
     server.quit()
 
     return "Email Sent!"
+
+import os
+
+UPLOAD_FOLDER = 'uploads'
+DATABASE_FILE = 'database.db'
+
+port = int(os.environ.get("PORT", 5000))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
