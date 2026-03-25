@@ -1,4 +1,12 @@
+import os
+import sys
 import sqlite3
+
+# Ensure project root is on sys.path so local packages like models are importable in all environments
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 from flask import Flask, request, session, redirect, url_for, render_template, Response
 from models.db import init_db
 
@@ -218,3 +226,15 @@ port = int(os.environ.get("PORT", 5000))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
+
+    import os
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
+    from models.user_model import create_user, login_user
+from models.history_model import add_history, get_history, get_dashboard_data
+
+from models.db import init_db
+
